@@ -8,6 +8,9 @@ export const FETCH_CONTACT_REQUEST = 'FETCH_CONTACT_REQUEST';
 export const FETCH_CONTACT_SUCCESS = 'FETCH_CONTACT_SUCCESS';
 export const FETCH_CONTACT_FAILURE = 'FETCH_CONTACT_FAILURE';
 
+export const SET_MODAL_OPEN = 'SET_MODAL_OPEN';
+export const setModalOpen = isOpen => ({type: SET_MODAL_OPEN, payload: isOpen});
+
 
 export const postContactRequest = () => ({type: CONTACT_REQUEST});
 export const postContactSuccess = () => ({type: CONTACT_SUCCESS});

@@ -3,12 +3,14 @@ import {
     CONTACT_REQUEST,
     CONTACT_SUCCESS, FETCH_CONTACT_FAILURE,
     FETCH_CONTACT_REQUEST,
-    FETCH_CONTACT_SUCCESS
+    FETCH_CONTACT_SUCCESS, SET_MODAL_OPEN
 } from "./contactBuilderActions";
 
 const initialState = {
     contacts: [],
-    loading: false
+    contact: [],
+    loading: false,
+    showPurchaseModal: false,
 }
 
 const contactReducer = (state = initialState, action) => {
@@ -25,6 +27,10 @@ const contactReducer = (state = initialState, action) => {
             return {...state, loading: false, contacts: action.payload};
         case FETCH_CONTACT_FAILURE:
             return {...state, loading: false};
+        case SET_MODAL_OPEN:
+            return {
+                ...state, showPurchaseModal: action.payload
+            }
         default:
             return state;
     }
