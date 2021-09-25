@@ -5,7 +5,7 @@ import {deleteRecentContact, getContacts, setModalOpen} from "../../store/contac
 import Modal from "../../components/UI/Modal/Modal";
 import ModalInfo from "../../components/ModalInfo/ModalInfo";
 
-const Contacts = () => {
+const Contacts = ({history}) => {
     const dispatch = useDispatch();
 
     const contacts = useSelector(state => state.contacts);
@@ -23,7 +23,7 @@ const Contacts = () => {
         dispatch(setModalOpen(false));
     };
 
-    const purchaseHandler = async (id) => {
+    const purchaseHandler = (id) => {
         dispatch(setModalOpen(true));
         setContact(contacts[id]);
         setId(id);
@@ -32,6 +32,10 @@ const Contacts = () => {
     const deleteContact = async () => {
         await dispatch(deleteRecentContact(id));
         dispatch(setModalOpen(false));
+    };
+
+    const editContact = () => {
+        history.push('/edit/' + id);
     };
 
     return contacts ? (
@@ -43,6 +47,7 @@ const Contacts = () => {
                 <ModalInfo
                     contact={contact}
                     onDeleting={deleteContact}
+                    onEditing={editContact}
                 />
             </Modal>
             {Object.keys(contacts).map(contact => (

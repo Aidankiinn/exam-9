@@ -8,7 +8,6 @@ import {
 
 const initialState = {
     contacts: [],
-    contact: [],
     loading: false,
     showPurchaseModal: false,
 }

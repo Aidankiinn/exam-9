@@ -52,6 +52,20 @@ export const getContacts = () => {
 export const deleteRecentContact = (id) => {
     return async dispatch => {
         await dispatch(deleteContact(id));
-        await axiosApi.delete('/contacts/' + id + '/.json');
+        await axiosApi.delete('/contacts/' + id + '.json');
+    }
+};
+
+export const editRecentContact = (id, contact, history) => {
+    return async dispatch => {
+        dispatch(postContactRequest());
+
+        try {
+            await axiosApi.put('/contacts/' + id + '.json', contact);
+            dispatch(postContactSuccess());
+            history.replace('/');
+        } catch (error) {
+            dispatch(postContactFailure());
+        }
     }
 }
