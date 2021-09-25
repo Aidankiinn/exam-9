@@ -1,7 +1,7 @@
 import {
     CONTACT_FAILURE,
     CONTACT_REQUEST,
-    CONTACT_SUCCESS, FETCH_CONTACT_FAILURE,
+    CONTACT_SUCCESS, DELETE_CONTACT, FETCH_CONTACT_FAILURE,
     FETCH_CONTACT_REQUEST,
     FETCH_CONTACT_SUCCESS, SET_MODAL_OPEN
 } from "./contactBuilderActions";
@@ -30,6 +30,11 @@ const contactReducer = (state = initialState, action) => {
         case SET_MODAL_OPEN:
             return {
                 ...state, showPurchaseModal: action.payload
+            }
+        case DELETE_CONTACT:
+            return {
+                ...state,
+                contacts: Object.keys(state.contacts).splice(state.contacts[action.payload], 1),
             }
         default:
             return state;

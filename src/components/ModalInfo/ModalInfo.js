@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const ModalInfo = ({contact}) => {
+const ModalInfo = ({contact, onDeleting, onEditing}) => {
     const classes = useStyles();
     return (
         <div className={classes.root}>
@@ -45,8 +45,8 @@ const ModalInfo = ({contact}) => {
                                 </Typography>
                             </Grid>
                             <Grid item>
-                                <Button variant="contained" color="primary">Edit</Button>
-                                <Button variant="contained" color="secondary">Delete</Button>
+                                <Button variant="contained" color="primary" onClick={onEditing}>Edit</Button>
+                                <Button variant="contained" color="secondary" onClick={onDeleting}>Delete</Button>
                             </Grid>
                         </Grid>
                     </Grid>

@@ -10,6 +10,8 @@ export const FETCH_CONTACT_FAILURE = 'FETCH_CONTACT_FAILURE';
 
 export const SET_MODAL_OPEN = 'SET_MODAL_OPEN';
 export const setModalOpen = isOpen => ({type: SET_MODAL_OPEN, payload: isOpen});
+export const DELETE_CONTACT = 'DELETE_CONTACT';
+export const deleteContact = (id) => ({type: DELETE_CONTACT, payload: id});
 
 
 export const postContactRequest = () => ({type: CONTACT_REQUEST});
@@ -44,5 +46,12 @@ export const getContacts = () => {
         } catch (error) {
             dispatch(fetchContactFailure());
         }
+    }
+};
+
+export const deleteRecentContact = (id) => {
+    return async dispatch => {
+        await dispatch(deleteContact(id));
+        await axiosApi.delete('/contacts/' + id + '/.json');
     }
 }
