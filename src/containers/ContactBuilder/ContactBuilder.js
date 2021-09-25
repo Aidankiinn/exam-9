@@ -9,7 +9,6 @@ const ContactBuilder = () => {
     return (
         <Container>
             <Switch>
-                {/*<Route path='/' exact render={() => <Typography variant="h5">Welcome!</Typography>}/>*/}
                 <Route path='/' exact component={Contacts}/>
                 <Route path='/add-contact' component={AddContact}/>
                 <Route path='/edit/:id' component={EditContact}/>

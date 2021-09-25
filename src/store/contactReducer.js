@@ -27,9 +27,7 @@ const contactReducer = (state = initialState, action) => {
         case FETCH_CONTACT_FAILURE:
             return {...state, loading: false};
         case SET_MODAL_OPEN:
-            return {
-                ...state, showPurchaseModal: action.payload
-            }
+            return {...state, showPurchaseModal: action.payload}
         case DELETE_CONTACT:
             const contactsCopy = state.contacts;
             delete contactsCopy[action.payload];
