@@ -31,9 +31,11 @@ const contactReducer = (state = initialState, action) => {
                 ...state, showPurchaseModal: action.payload
             }
         case DELETE_CONTACT:
+            const contactsCopy = state.contacts;
+            delete contactsCopy[action.payload];
             return {
                 ...state,
-                contacts: Object.keys(state.contacts).splice(state.contacts[action.payload], 1),
+                contacts: contactsCopy,
             }
         default:
             return state;

@@ -30,7 +30,7 @@ const ContactItem = ({image, name, cardInfo}) => {
             <Paper className={classes.paper}>
                 <Grid container spacing={2}>
                     <Grid item>
-                        <img className={classes.img} alt="complex" src={image}/>
+                        <img className={classes.img} alt="Contact's main look" src={image}/>
                     </Grid>
                     <Grid item xs={12} sm container>
                         <Grid item xs>

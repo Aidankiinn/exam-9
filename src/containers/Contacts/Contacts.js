@@ -30,7 +30,7 @@ const Contacts = ({history}) => {
     };
 
     const deleteContact = async () => {
-        await dispatch(deleteRecentContact(id));
+        await dispatch(deleteRecentContact(id, history));
         dispatch(setModalOpen(false));
     };
 

@@ -41,6 +41,7 @@ const EditContact = ({history, match}) => {
     };
 
     const goToContacts = () => {
+        dispatch(setModalOpen(false));
         history.push('/');
     }
 

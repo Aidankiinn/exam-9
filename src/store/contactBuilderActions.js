@@ -49,10 +49,11 @@ export const getContacts = () => {
     }
 };
 
-export const deleteRecentContact = (id) => {
+export const deleteRecentContact = (id, history) => {
     return async dispatch => {
         await dispatch(deleteContact(id));
         await axiosApi.delete('/contacts/' + id + '.json');
+        history.replace('/');
     }
 };
 
